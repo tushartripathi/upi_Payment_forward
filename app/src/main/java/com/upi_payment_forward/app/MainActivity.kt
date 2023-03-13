@@ -38,44 +38,44 @@ class MainActivity : AppCompatActivity(){
             } else {
                 // if the edit text is not empty then
                 // we are calling method to make payment.
-                makePayment(amount, upi, name, desc, transcId)
+               // makePayment(amount, upi, name, desc, transcId)
             }
         }
 
     }
 
-    private fun makePayment(
-        amount: String,
-        upi: String,
-        name: String,
-        desc: String,
-        transactionId: String
-    ) {
-        // on below line we are calling an easy payment method and passing
-        // all parameters to it such as upi id,name, description and others.
-        val easyUpiPayment: EasyUpiPayment = Builder()
-            .with(this) // on below line we are adding upi id.
-            .setPayeeVpa(upi) // on below line we are setting name to which we are making payment.
-            .setPayeeName(name) // on below line we are passing transaction id.
-            .setTransactionId(transactionId) // on below line we are passing transaction ref id.
-            .setTransactionRefId(transactionId) // on below line we are adding description to payment.
-            .setDescription(desc) // on below line we are passing amount which is being paid.
-            .setAmount(amount) // on below line we are calling a build method to build this ui.
-            .build()
-        // on below line we are calling a start
-        // payment method to start a payment.
-        easyUpiPayment.startPayment()
-        // on below line we are calling a set payment
-        // status listener method to call other payment methods.
-        easyUpiPayment.setPaymentStatusListener(this)
-    }
-
-    fun onTransactionCompleted(transactionDetails: TransactionDetails) {
-        // on below line we are getting details about transaction when completed.
-        val transcDetails: String = transactionDetails.getStatus().toString()
-            .toString() + "\n" + "Transaction ID : " + transactionDetails.getTransactionId()
-        transactionDetailsTV.setVisibility(View.VISIBLE)
-        // on below line we are setting details to our text view.
-        transactionDetailsTV.setText(transcDetails)
-    }
+//    private fun makePayment(
+//        amount: String,
+//        upi: String,
+//        name: String,
+//        desc: String,
+//        transactionId: String
+//    ) {
+//        // on below line we are calling an easy payment method and passing
+//        // all parameters to it such as upi id,name, description and others.
+//        val easyUpiPayment: EasyUpiPayment = Builder()
+//            .with(this) // on below line we are adding upi id.
+//            .setPayeeVpa(upi) // on below line we are setting name to which we are making payment.
+//            .setPayeeName(name) // on below line we are passing transaction id.
+//            .setTransactionId(transactionId) // on below line we are passing transaction ref id.
+//            .setTransactionRefId(transactionId) // on below line we are adding description to payment.
+//            .setDescription(desc) // on below line we are passing amount which is being paid.
+//            .setAmount(amount) // on below line we are calling a build method to build this ui.
+//            .build()
+//        // on below line we are calling a start
+//        // payment method to start a payment.
+//        easyUpiPayment.startPayment()
+//        // on below line we are calling a set payment
+//        // status listener method to call other payment methods.
+//        easyUpiPayment.setPaymentStatusListener(this)
+//    }
+//
+//    fun onTransactionCompleted(transactionDetails: TransactionDetails) {
+//        // on below line we are getting details about transaction when completed.
+//        val transcDetails: String = transactionDetails.getStatus().toString()
+//            .toString() + "\n" + "Transaction ID : " + transactionDetails.getTransactionId()
+//        transactionDetailsTV.setVisibility(View.VISIBLE)
+//        // on below line we are setting details to our text view.
+//        transactionDetailsTV.setText(transcDetails)
+//    }
 }
